@@ -1,7 +1,7 @@
 Step 1: Choosing who starts, computer or user.
 Step 2: Play first move.
 
-(making a strategy for the computer that almost always
+(making a strategy for the computer that always
 guarantees a win.)
 
 Step 3: Disqualifying the one who reaches 21 first.

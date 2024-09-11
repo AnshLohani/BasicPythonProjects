@@ -58,9 +58,14 @@ def rword():
 finalword = rword()
 g = list()
 t=-1
+
 print("First try free!")
 while True:
     guess = input("enter a letter (A-Z): ")
+    if t == 10:
+        print("Game Over!")
+        print(f"The word was {finalword}")
+        continue
     if len(guess) != 1:
         print("Enter only one letter!")
         continue
@@ -89,8 +94,9 @@ while True:
                     break
                 else:
                     finalword = rword()
-                    t=0
+                    t=-1
                     print("First try free!")
+                    g = list()
             
 
         
