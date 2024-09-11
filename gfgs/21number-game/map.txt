@@ -1,0 +1,15 @@
+Step 1: Choosing who starts, computer or user.
+Step 2: Play first move.
+
+(making a strategy for the computer that almost always
+guarantees a win.)
+
+Step 3: Disqualifying the one who reaches 21 first.
+Step 4: Ask to play again.
+
+
+Other additions:
+1. Adding a multiplayer mode.
+2. Pass and play mode.
+3. Adding more bots(computers)
+4. Making it on a web server (online)
