@@ -1,1 +1,1 @@
-#hangman code 
+import random
