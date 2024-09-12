@@ -4,15 +4,11 @@ import random
 
 def number():
     num = list()
-    temp = ""
     x = random.randint(1,9)
     num.append(x)
     for i in range(3):
         n = random.randint(0,9)
         num.append(n)
-    for i in num:
-        temp += f'{i}'
-
     return num
     
 
