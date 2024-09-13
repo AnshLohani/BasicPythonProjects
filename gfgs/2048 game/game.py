@@ -29,29 +29,14 @@ def randomboard(arg):
     else:
         return rboard
 
-    
-
-def update(game_board,key):
-    pressed_key = key.lower() 
-    if pressed_key == 'w':
-        ... 
-    elif pressed_key == 'a':
-        ...
-    elif pressed_key == 's':
-        ...
-    elif pressed_key == 'd':
-        ...
-    else:
-        print("Enter a valid choice!")
-
 def showboard(board):
     for i in board:
         rows = ''
         for j in i:
             k = ' '*(5 - len(str(j)))
             rows += f'{j}{k}'
-        print(rows)
-    
+        print(rows)  
+
 def status(board):
     # 0=continue 1=won 2=lost
     statuslist = list()
@@ -69,6 +54,20 @@ def status(board):
         return 'Continue'
     else:
         return 'Game Lost!'
+
+
+def update(game_board,key):
+    pressed_key = key.lower() 
+    if pressed_key == 'w':
+        ... 
+    elif pressed_key == 'a':
+        ...
+    elif pressed_key == 's':
+        ...
+    elif pressed_key == 'd':
+        ...
+    else:
+        print("Enter a valid choice!")
 
 
 board = randomboard(0)
