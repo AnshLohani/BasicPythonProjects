@@ -2,9 +2,9 @@ import random
 
 
 def gameboard():
-    x=[[0,0,0],
-       [0,0,0],
-       [0,0,0]]
+    x=[[0,2,4],
+       [2,0,0],
+       [2,0,0]]
     return x 
 
 def randomboard(arg):
@@ -59,17 +59,75 @@ def status(board):
 def update(game_board,key):
     pressed_key = key.lower() 
     if pressed_key == 'w':
-        ... 
+        row1 = game_board[0] 
+        row2 = game_board[1]
+        row3 = game_board[2]
+        for j in range(3):
+            if row1[j] == row2[j]:
+                row1[j] *= 2
+                if row3[j] == 0:
+                    row2[j] = random.sample([0,2,4],1)[0]
+                    row3[j] = 0
+                else:
+                    row2[j] = row3[j]
+                    row3[j] = random.sample([0,2,4],1)[0]
+            elif row2[j] == row3[j] and row3[j] != 0:
+                row2[j] *= 2
+                row3[j] = random.sample([0,0,2,4],1)[0]
+            if row1[j] == 0:
+                row1[j] = row2[j]
+                row2[j] = random.sample([0,0,2,4],1)[0]
+                row3[j] = 0
+    elif pressed_key == 's':
+        row3 = game_board[0] 
+        row2 = game_board[1]
+        row1 = game_board[2]
+        for j in range(3):
+            if row1[j] == row2[j]:
+                row1[j] *= 2
+                if row3[j] == 0:
+                    row2[j] = random.sample([0,2,4],1)[0]
+                    row3[j] = 0
+                else:
+                    row2[j] = row3[j]
+                    row3[j] = random.sample([0,2,4],1)[0]
+            elif row2[j] == row3[j] and row3[j] != 0:
+                row2[j] *= 2
+                row3[j] = random.sample([0,0,2,4],1)[0]
+            if row1[j] == 0:
+                row1[j] = row2[j]
+                row2[j] = random.sample([0,0,2,4],1)[0]
+                row3[j] = 0
     elif pressed_key == 'a':
         ...
-    elif pressed_key == 's':
-        ...
+
     elif pressed_key == 'd':
         ...
     else:
         print("Enter a valid choice!")
 
 
-board = randomboard(0)
+board = gameboard()
 showboard(board)
 print(status(board))
+
+update(board,'s')
+showboard(board)
+
+
+'''
+for i in range(1):
+row1 = game_board[i % 3] 
+            row2 = game_board[(i+1) % 3] 
+            row3 = game_board[(i+2) % 3] 
+            for j in range(2):
+                if row1[j] == row2[j]:
+                    row1[j] = row1[j]*2
+                    if row3 == 0:
+                        row2[j] = random.sample([0,2,4],1)[0]
+                        continue
+                    else:
+                        row2[j] = row3[j]
+                        continue
+
+'''
