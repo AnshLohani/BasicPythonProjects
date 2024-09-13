@@ -1,1 +1,10 @@
 The project is due!
+
+
+status() fuction 
+--> To make it boolean and make it the main loop (While) condition to break or continue.
+
+Make a main loop (while loop) in which the game will be played 
+
+update()
+--> Implement the mathematical logic 
