@@ -2,10 +2,20 @@ import random
 
 
 def gameboard():
-    x=[[0,2,4],
-       [2,0,0],
-       [2,0,0]]
-    return x 
+    x=[[2,0,2],
+       [4,4,0],
+       [0,0,2]]
+    game = list()
+    for i in range(3):
+        temp = list()
+        for j in range(3):
+            temp.append(random.sample([0,0,0,2,2,4],1)[0])
+        game.append(temp)
+    
+    return game
+
+
+    
 
 def randomboard(arg):
     '''
@@ -99,35 +109,53 @@ def update(game_board,key):
                 row2[j] = random.sample([0,0,2,4],1)[0]
                 row3[j] = 0
     elif pressed_key == 'a':
-        ...
-
+        for i in game_board:
+            row = i
+            if row[1] == 0:
+                row[1] = row[2]
+                row[2] = 0
+            while row[0] == 0:
+                row[0] = row[1]
+                if row[2] == 0:
+                    row[1] = random.sample([0,2,4],1)[0]
+                else:
+                    row[1] = row[2]
+                    row[2] = 0
+            if row[0] == row[1]:
+                row[0] *= 2
+                if row[2] == 0:
+                    row[1] = random.sample([0,2,4],1)[0]
+                    row[2] = 0
+                else:
+                    row[1] = row[2]
+                    row[2] = random.sample([0,2,4],1)[0]      
     elif pressed_key == 'd':
-        ...
+        for i in game_board:
+            row = i
+            if row[1] == 0:
+                row[1] = row[0]
+                row[0] = 0
+            while row[2] == 0:
+                row[2] = row[1]
+                if row[0] == 0:
+                    row[1] = random.sample([0,2,4],1)[0]
+                else:
+                    row[1] = row[0]
+                    row[0] = 0
+            if row[2] == row[1]:
+                row[2] *= 2
+                if row[0] == 0:
+                    row[1] = random.sample([0,2,4],1)[0]
+                    row[0] = 0
+                else:
+                    row[1] = row[0]
+                    row[0] = random.sample([0,2,4],1)[0]            
     else:
         print("Enter a valid choice!")
 
 
 board = gameboard()
-showboard(board)
-print(status(board))
 
-update(board,'s')
-showboard(board)
+while status(board):
+    ...
 
-
-'''
-for i in range(1):
-row1 = game_board[i % 3] 
-            row2 = game_board[(i+1) % 3] 
-            row3 = game_board[(i+2) % 3] 
-            for j in range(2):
-                if row1[j] == row2[j]:
-                    row1[j] = row1[j]*2
-                    if row3 == 0:
-                        row2[j] = random.sample([0,2,4],1)[0]
-                        continue
-                    else:
-                        row2[j] = row3[j]
-                        continue
-
-'''
