@@ -8,3 +8,8 @@ Make a main loop (while loop) in which the game will be played
 
 update()
 --> Implement the mathematical logic 
+
+
+##################################################
+
+The update() function --> 'a' and 'd' keys are faulty!!

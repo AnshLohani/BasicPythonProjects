@@ -1,6 +1,5 @@
 import random 
 
-
 def gameboard():
     x=[[2,0,2],
        [4,4,0],
@@ -13,9 +12,6 @@ def gameboard():
         game.append(temp)
     
     return game
-
-
-    
 
 def randomboard(arg):
     '''
@@ -61,10 +57,9 @@ def status(board):
     if 1 in statuslist:
         return 'Game Won!'
     elif 0 in statuslist:
-        return 'Continue'
+        return 'c'
     else:
         return 'Game Lost!'
-
 
 def update(game_board,key):
     pressed_key = key.lower() 
@@ -153,9 +148,19 @@ def update(game_board,key):
     else:
         print("Enter a valid choice!")
 
-
 board = gameboard()
 
-while status(board):
-    ...
+while True:
+    if status(board) == 'c':
+        showboard(board)
+        key = input("Enter a choice (w/a/s/d): ")
+        update(board,key)
+    elif status(board) == 'w':
+        print("You won the game!!")
+        showboard(board)
+    else:
+        print("You lost the game!")
+        break 
+    
+
 
